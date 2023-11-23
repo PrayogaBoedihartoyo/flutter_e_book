@@ -5,6 +5,7 @@ import 'components/recent_book.dart';
 import 'components/trending_book.dart';
 
 class HomePage extends StatefulWidget {
+  static const nameRoute = '/homePage';
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -36,7 +37,7 @@ class _HomePageState extends State<HomePage> {
               decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: AssetImage('assets/images/profile.png'))),
+                      image: AssetImage('assets/images/me.png'))),
             ),
             const SizedBox(width: 8),
             Column(

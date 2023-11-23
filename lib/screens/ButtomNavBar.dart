@@ -6,6 +6,7 @@ import 'card/card_page.dart';
 import 'home/home_page.dart';
 
 class ButtomNavBar extends StatefulWidget {
+  static const nameRoute = '/';
   const ButtomNavBar({super.key});
 
   @override

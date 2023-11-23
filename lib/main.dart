@@ -1,4 +1,6 @@
 import 'package:e_book_app/screens/ButtomNavBar.dart';
+import 'package:e_book_app/screens/home/home_page.dart';
+import 'package:e_book_app/screens/home/pages/book_detail.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,10 +12,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: ButtomNavBar(),
+      routes: {
+        ButtomNavBar.nameRoute: (context) => const ButtomNavBar(),
+        HomePage.nameRoute: (context) => const HomePage(),
+        BookDetail.nameRoute: (context) => const BookDetail(),
+      },
     );
   }
 }
