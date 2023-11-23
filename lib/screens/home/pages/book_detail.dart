@@ -49,6 +49,70 @@ class BookDetail extends StatelessWidget {
       );
     }
 
+    Widget description() {
+      return Container(
+        margin: const EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+        decoration: BoxDecoration(
+            color: whiteColor,
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(30),
+            )),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Enchantment',
+                        style: semiBoldText20.copyWith(
+                          color: blackColor2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Text(
+                        'Guy Kawasaki',
+                        style: mediumText14.copyWith(
+                          color: greyColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 5),
+                Text(
+                  'Free Access',
+                  style: mediumText14.copyWith(
+                    color: greenColor,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 30),
+            Text(
+              'Description',
+              style: semiBoldText14.copyWith(
+                color: blackColor2,
+              ),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'Enchantment, as defined by bestselling business guru Guy Kawasaki, is not about manipulating people. It transforms situations and relationships.',
+              style: regularText12.copyWith(
+                color: greyColor,
+                height: 2,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: backgroundColor,
       body: ListView(
@@ -57,6 +121,7 @@ class BookDetail extends StatelessWidget {
             children: [
               header(),
               bookImage(),
+              description(),
             ],
           )
         ],
