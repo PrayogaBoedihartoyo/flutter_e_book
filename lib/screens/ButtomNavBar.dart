@@ -65,7 +65,7 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
             child: screen,
           ),
         )).values.toList(),
-      )
+      ),
     );
   }
 }
