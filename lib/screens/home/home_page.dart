@@ -1,9 +1,27 @@
+import 'package:e_book_app/models/book.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 import '../../themes.dart';
+import 'components/recent_book.dart';
+import 'components/trending_book.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final List<String> _categories = [
+    'All Books',
+    'Adventure',
+    'Romance',
+    'Drama',
+    'Horror',
+    'Mystery',
+  ];
+
+  int _isSelected = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -73,47 +91,71 @@ class HomePage extends StatelessWidget {
     }
 
     Widget recentBook() {
-      return SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+      return const SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        padding: EdgeInsets.symmetric(horizontal: 30),
         child: Row(
           children: [
-            Container(
-              height: 150,
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                border: Border.all(color: borderColorRecentBook),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                children: [
-                  Image.asset('assets/images/recentbook_1.png', width: 90),
-                  const SizedBox(width: 18),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'The Magic',
-                        style: semiBoldText14.copyWith(color: blackColor2),
-                      ),
-                      CircularPercentIndicator(
-                        reverse: true,
-                        radius: 50,
-                        lineWidth: 10,
-                        percent: 0.5,
-                        circularStrokeCap: CircularStrokeCap.round,
-                        animation: true,
-                        progressColor: greenColor,
-                      ),
-                      Text(
-                        '50% Completed',
-                        style: mediumText12.copyWith(color: greyColorRecentBook),
-                      ),
-                    ],
-                  )
-                ],
-              ),
+            RecentBook(
+              image: 'assets/images/recentbook_1.png',
+              title: 'The Magic',
+            ),
+            SizedBox(width: 20),
+            RecentBook(
+              image: 'assets/images/recentbook_2.png',
+              title: 'The Martian',
             ),
           ],
+        ),
+      );
+    }
+
+    Widget categories(int index) {
+      return InkWell(
+        onTap: () {
+          setState(() {
+            _isSelected = index;
+          });
+        },
+        child: Container(
+          margin: const EdgeInsets.only(top: 30, left: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+          decoration: BoxDecoration(
+            color: _isSelected == index ? greenColor : transparantColor,
+            borderRadius: BorderRadius.circular(6),
+          ),
+          child: Text(
+            _categories[index],
+            style: semiBoldText14.copyWith(
+              color: _isSelected == index ? whiteColor : greyColor,
+            ),
+          ),
+        ),
+      );
+    }
+
+    Widget listCategories() {
+      return SingleChildScrollView(
+        padding: const EdgeInsets.only(left: 30),
+        scrollDirection: Axis.horizontal,
+        child: Row(
+            children: _categories
+                .asMap()
+                .entries
+                .map((MapEntry map) => categories(map.key))
+                .toList()),
+      );
+    }
+
+    Widget trendingBook() {
+      return SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: Row(
+          children: bookLists
+              .asMap()
+              .entries
+              .map((MapEntry map) => TrendingBook(info: bookLists[map.key],)).toList(),
         ),
       );
     }
@@ -149,6 +191,16 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+            listCategories(),
+            Padding(
+              padding: const EdgeInsets.only(left: 30, top: 30),
+              child: Text(
+                'Trending Now',
+                style: semiBoldText16.copyWith(color: blackColor),
+              ),
+            ),
+            trendingBook(),
+            const SizedBox(height: 30),
           ],
         ));
   }
