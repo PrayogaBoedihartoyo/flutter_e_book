@@ -49,6 +49,103 @@ class BookDetail extends StatelessWidget {
       );
     }
 
+    Widget infoDescription() {
+      return Container(
+        height: 60,
+        margin: const EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+        decoration: BoxDecoration(
+            color: greyColorInfo, borderRadius: BorderRadius.circular(9)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                Text(
+                  'Rating',
+                  style: mediumText10.copyWith(color: dividerColor),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  '4.8',
+                  style: semiBoldText12.copyWith(color: blackColor2),
+                ),
+              ],
+            ),
+            VerticalDivider(
+              color: dividerColor,
+              thickness: 1,
+            ),
+            Column(
+              children: [
+                Text(
+                  'Number of pages',
+                  style: mediumText10.copyWith(color: dividerColor),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  '180 Pages',
+                  style: semiBoldText12.copyWith(color: blackColor2),
+                ),
+              ],
+            ),
+            VerticalDivider(
+              color: dividerColor,
+              thickness: 1,
+            ),
+            Column(
+              children: [
+                Text(
+                  'Language',
+                  style: mediumText10.copyWith(color: dividerColor),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  'ENG',
+                  style: semiBoldText12.copyWith(color: blackColor2),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget buttonReadNow() {
+      return Container(
+        height: 50,
+        width: double.infinity,
+        margin: const EdgeInsets.only(top: 30),
+        child: TextButton(
+          onPressed: () {},
+          style: TextButton.styleFrom(
+            backgroundColor: greenColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+          ),
+          child: Text(
+            'Read Now',
+            style: semiBoldText20.copyWith(color: whiteColor),
+          ),
+        ),
+      );
+    }
+
+    Widget saveBottom(){
+      return Positioned(
+        top: 400,
+        right: 30,
+        child: Container(
+          height: 50,
+          width: 50,
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          decoration: BoxDecoration(color: greenColor, shape: BoxShape.circle),
+          child: Image.asset('assets/icons/save-button.png'),
+        ),
+      );
+    }
+
     Widget description() {
       return Container(
         margin: const EdgeInsets.only(top: 30),
@@ -108,6 +205,8 @@ class BookDetail extends StatelessWidget {
                 height: 2,
               ),
             ),
+            infoDescription(),
+            buttonReadNow(),
           ],
         ),
       );
@@ -117,11 +216,16 @@ class BookDetail extends StatelessWidget {
       backgroundColor: backgroundColor,
       body: ListView(
         children: [
-          Column(
+          Stack(
             children: [
-              header(),
-              bookImage(),
-              description(),
+              Column(
+                children: [
+                  header(),
+                  bookImage(),
+                  description(),
+                ],
+              ),
+              saveBottom(),
             ],
           )
         ],
