@@ -24,14 +24,17 @@ class TrendingBook extends StatelessWidget {
               'writers': info.writers,
             });
           },
-          child: Container(
-            height: 160,
-            width: 110,
-            margin: const EdgeInsets.only(top: 12, right: 20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(
-                image: AssetImage(info.imageUrl),
+          child: Hero(
+            tag: info.imageUrl,
+            child: Container(
+              height: 160,
+              width: 110,
+              margin: const EdgeInsets.only(top: 12, right: 20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  image: AssetImage(info.imageUrl),
+                ),
               ),
             ),
           ),

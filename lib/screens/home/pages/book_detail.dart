@@ -38,14 +38,17 @@ class BookDetail extends StatelessWidget {
     }
 
     Widget bookImage() {
-      return Container(
-        width: 275,
-        height: 375,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage(data['imageUrl']),
+      return Hero(
+        tag: data['imageUrl'],
+        child: Container(
+          width: 275,
+          height: 375,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage(data['imageUrl']),
+            ),
           ),
         ),
       );
