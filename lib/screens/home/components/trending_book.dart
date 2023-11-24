@@ -18,7 +18,11 @@ class TrendingBook extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            Navigator.pushNamed(context, BookDetail.nameRoute);
+            Navigator.pushNamed(context, BookDetail.nameRoute, arguments: {
+              'imageUrl': info.imageUrl,
+              'title': info.title,
+              'writers': info.writers,
+            });
           },
           child: Container(
             height: 160,
