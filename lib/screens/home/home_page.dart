@@ -44,10 +44,10 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hello Sarah,',
+                  'Prayoga Boedihartoyo,',
                   style: semiBoldText16,
                 ),
-                Text('Good Morning',
+                Text('Fullstack Developer',
                     style: regularText14.copyWith(color: greyColor)),
               ],
             ),
