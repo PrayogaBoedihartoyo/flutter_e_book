@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<String> _categories = [
-    'All Books',
+    'All Film',
     'Adventure',
     'Romance',
     'Drama',
@@ -98,13 +98,13 @@ class _HomePageState extends State<HomePage> {
         child: Row(
           children: [
             RecentBook(
-              image: 'assets/images/recentbook_1.png',
-              title: 'The Magic',
+              image: 'assets/images/gundala.jpg', //cok
+              title: 'Gundala',
             ),
             SizedBox(width: 20),
             RecentBook(
-              image: 'assets/images/recentbook_2.png',
-              title: 'The Martian',
+              image: 'assets/images/gitacinta.jpg',
+              title: 'Gita Cinta dari SMA',
             ),
           ],
         ),
@@ -183,7 +183,7 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: Text(
-                      'Recent Book',
+                      'Recent Watched',
                       style: semiBoldText16.copyWith(color: blackColor),
                     ),
                   ),

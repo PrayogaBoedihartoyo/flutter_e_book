@@ -12,15 +12,15 @@ class BookList {
 
 List<BookList> bookLists = [
   BookList(
-      imageUrl: 'assets/images/trendingbook_1.png',
-      writers: 'Guy Kawasaki',
-      title: 'Enchantment'),
+      imageUrl: 'assets/images/dear_nathan.jpg',
+      writers: 'Justin Lin',
+      title: 'Dear Nathan'),
   BookList(
-      imageUrl: 'assets/images/trendingbook_2.png',
-      writers: 'Aaron Mahnke',
-      title: 'Lore'),
+      imageUrl: 'assets/images/balerina.jpg',
+      writers: 'Paul W.S. Anderson',
+      title: 'Balerina'),
   BookList(
-      imageUrl: 'assets/images/trendingbook_3.png',
-      writers: 'Spencer Johnson, M.D',
-      title: 'Who Moved My Cheese'),
+      imageUrl: 'assets/images/central_intelegence.jpg',
+      writers: 'James Wan',
+      title: 'Central Inteligence'),
 ];
